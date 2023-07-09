@@ -40,7 +40,7 @@ def stop():
     
 # draw the window and give it a min size
 root = tk.Tk()
-root.geometry("400x150")
+root.geometry(str(width) + "x" + str(height))
 root.minsize(width, height)
 entryInt = tk.IntVar()
 
