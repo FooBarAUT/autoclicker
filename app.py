@@ -1,6 +1,5 @@
 import tkinter as tk
 import mouse
-import time
 
 width = 400
 height = 150
@@ -13,12 +12,6 @@ options = [
     "middle",
     "left"
 ]
-
-
-def printInput():
-    inputNumber = entryInt.get()
-    inputMouse = chosenOption.get()
-    label.config(text="Input number was: " + str(inputNumber) + " and mouse " + str(inputMouse))
 
         
 def click():
@@ -34,9 +27,11 @@ def start():
     loopCond = True
     root.after(1000, click)
     
+    
 def stop():
     global loopCond
     loopCond = False
+    
     
 # draw the window and give it a min size
 root = tk.Tk()
@@ -59,9 +54,9 @@ startbtn = tk.Button(root, text = "START", command = start, activebackground = "
 stopbtn = tk.Button(root, text = "STOP", command = stop, activebackground = "green", activeforeground = "blue").place(x = width/2 + 55, y = height-50)
 
 # debugging to see input and chosen option, will be deleted later
-label = tk.Label(root, text = "")
+label = tk.Label(root, text="")
 label.pack()
 
-#start the main loop-di-loop
-root.attributes('-topmost',True)
+# start the main loop-di-loop
+root.attributes('-topmost', True)
 root.mainloop()
