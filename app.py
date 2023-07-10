@@ -1,4 +1,5 @@
 import tkinter as tk
+from pynput.keyboard import *
 import mouse
 
 width = 400
@@ -13,7 +14,7 @@ options = [
     "left"
 ]
 
-        
+
 def click():
     inputmillis = entryInt.get()
     mousebutton = chosenOption.get()
@@ -21,18 +22,18 @@ def click():
         mouse.click(button=mousebutton)
     root.after(inputmillis, click)
 
-        
+
 def start():
     global loopCond
     loopCond = True
     root.after(1000, click)
-    
-    
+
+
 def stop():
     global loopCond
     loopCond = False
-    
-    
+
+
 # draw the window and give it a min size
 root = tk.Tk()
 root.geometry(str(width) + "x" + str(height))
@@ -53,9 +54,6 @@ drop.place(x=250, y=42)
 startbtn = tk.Button(root, text = "START", command = start, activebackground = "green", activeforeground = "blue").place(x = width/2 - 65, y = height-50)
 stopbtn = tk.Button(root, text = "STOP", command = stop, activebackground = "green", activeforeground = "blue").place(x = width/2 + 55, y = height-50)
 
-# debugging to see input and chosen option, will be deleted later
-label = tk.Label(root, text="")
-label.pack()
 
 # start the main loop-di-loop
 root.attributes('-topmost', True)
